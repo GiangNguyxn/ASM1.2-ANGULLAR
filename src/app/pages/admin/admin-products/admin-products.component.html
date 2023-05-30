@@ -1,0 +1,26 @@
+<div class="container">
+        <h1 class="title">Danh sách sản phẩm</h1>
+        <a routerLink="add"><button class="btn btn-primary">Thêm sản phẩm mới</button></a>
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Option</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td><img [src]="product.image
+                        " alt=""></td>
+                    <td><a routerLink="{{product.id}}/edit">Edit</a><button class="btn btn-danger" (click)="onHandleRemove(product.id)">delete</button></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+</div>
